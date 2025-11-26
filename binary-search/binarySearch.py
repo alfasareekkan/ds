@@ -1,3 +1,6 @@
+from math import log
+
+
 arr = [1, 2, 3, 5, 8, 12, 56, 76, 100]
 
 def binarySearch(arr, target):
@@ -26,14 +29,32 @@ def binarySearch(arr, target):
 
 
 # Test the function
-result = binarySearch(arr, 56)
-if result != -1:
-    print(f"Target found at index {result}")
-else:
-    print("Target not found")
+# result = binarySearch(arr, 56)
+# if result != -1:
+#     print(f"Target found at index {result}")
+# else:
+#     print("Target not found")
 
-# Additional test cases
-print(f"\nSearching for 1: {binarySearch(arr, 1)}")
-print(f"Searching for 100: {binarySearch(arr, 100)}")
-print(f"Searching for 12: {binarySearch(arr, 12)}")
-print(f"Searching for 99 (not in array): {binarySearch(arr, 99)}")
+# # Additional test cases
+# print(f"\nSearching for 1: {binarySearch(arr, 1)}")
+# print(f"Searching for 100: {binarySearch(arr, 100)}")
+# print(f"Searching for 12: {binarySearch(arr, 12)}")
+# print(f"Searching for 99 (not in array): {binarySearch(arr, 99)}")
+
+
+
+
+
+def binarySearchRecursive(arr, low,high, target):
+    if low > high:
+        return -1
+    mid=(low+high)//2
+    if arr[mid]==target:
+        return mid
+    elif target>arr[mid]:
+        return binarySearchRecursive(arr, mid+1, high, target)
+    else:
+        return binarySearchRecursive(arr, low, mid-1, target)
+
+
+print(binarySearchRecursive(arr,0,len(arr)-1,199))
