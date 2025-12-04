@@ -18,7 +18,7 @@ def lowerBound(arr, target):
     
     return start
 
-print("test")
+# print("test")
 def upperBound(arr, target):
     """
     Upper bound binary search implementation
